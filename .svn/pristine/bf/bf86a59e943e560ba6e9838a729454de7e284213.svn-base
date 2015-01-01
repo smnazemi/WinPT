@@ -1,0 +1,65 @@
+//************************************************************************
+//
+// © Copyright Cisco Systems, All Rights Reserved.
+//  All use, disclosure, and/or reproduction of this material is 
+//  prohibited unless authorized in writing. 
+//
+//************************************************************************
+/*! /file
+	File Name:	fwtest.h   
+	Author:		Visweswar K. Rao 
+	Date:		19-Aug-2008   
+	Revision:	1.1           
+	Description:
+		This file holds the fwtest class implementation
+		This class holds all the gui related functions implementation .
+
+*/
+
+#ifndef FWTEST_H
+#define FWTEST_H
+
+#include <QtGui/QMainWindow>
+#include "../ui_fwtest.h"
+#include "../IPCHeaders.h"
+class MyDeviceEvents;
+class MyDeviceEvents2;
+
+class fwtest : public QMainWindow
+{
+	Q_OBJECT
+
+public:
+	friend class MyDeviceEvents;
+	friend class MyDeviceEvents2;
+	
+	fwtest(QWidget *parent = 0, Qt::WFlags flags = 0);
+	~fwtest();
+	void showMsg(QString str);
+	void showMsg2(QString str);
+	void enterMsg(QString m);
+private:
+	Ui::fwtestClass ui;
+	IPCFrameWork *myIpcFw;
+
+private slots:
+	void on_Start_Framework_clicked();
+	void on_Un_Subscribe_clicked();
+	void on_Subscribe_clicked();
+	void on_Delete(QString deviceName);
+	void on_Create(int type, std::string model);
+	int getDeviceType(QString deviceName);
+	int getLinkType(QString LinkName);
+	QString getLinkName(int linkType);
+	void on_workspaceCLI_returnPressed();
+	void on_devCLI_returnPressed();
+	void on_Manage();
+	void start_Framework();
+	void tree_Widget();
+	void read_Workspace_CLI();
+	//void showMsg(QString str);
+	//void showMsg2(QString str);
+
+};
+
+#endif // FWTEST_H

@@ -1,0 +1,112 @@
+/****************************************************************************
+** Meta object code from reading C++ file 'fwtest.h'
+**
+** Created: Tue May 12 20:48:50 2009
+**      by: The Qt Meta Object Compiler version 61 (Qt 4.5.0)
+**
+** WARNING! All changes made in this file will be lost!
+*****************************************************************************/
+
+#include "../../fwtest.h"
+#if !defined(Q_MOC_OUTPUT_REVISION)
+#error "The header file 'fwtest.h' doesn't include <QObject>."
+#elif Q_MOC_OUTPUT_REVISION != 61
+#error "This file was generated using the moc from 4.5.0. It"
+#error "cannot be used with the include files from this version of Qt."
+#error "(The moc has changed too much.)"
+#endif
+
+QT_BEGIN_MOC_NAMESPACE
+static const uint qt_meta_data_fwtest[] = {
+
+ // content:
+       2,       // revision
+       0,       // classname
+       0,    0, // classinfo
+      14,   12, // methods
+       0,    0, // properties
+       0,    0, // enums/sets
+       0,    0, // constructors
+
+ // slots: signature, parameters, type, tag, flags
+       8,    7,    7,    7, 0x08,
+      37,    7,    7,    7, 0x08,
+      63,    7,    7,    7, 0x08,
+      97,   86,    7,    7, 0x08,
+     127,  116,    7,    7, 0x08,
+     158,   86,  154,    7, 0x08,
+     190,  181,  154,    7, 0x08,
+     228,  219,  211,    7, 0x08,
+     245,    7,    7,    7, 0x08,
+     277,    7,    7,    7, 0x08,
+     303,    7,    7,    7, 0x08,
+     315,    7,    7,    7, 0x08,
+     333,    7,    7,    7, 0x08,
+     347,    7,    7,    7, 0x08,
+
+       0        // eod
+};
+
+static const char qt_meta_stringdata_fwtest[] = {
+    "fwtest\0\0on_Start_Framework_clicked()\0"
+    "on_Un_Subscribe_clicked()\0"
+    "on_Subscribe_clicked()\0deviceName\0"
+    "on_Delete(QString)\0type,model\0"
+    "on_Create(int,std::string)\0int\0"
+    "getDeviceType(QString)\0LinkName\0"
+    "getLinkType(QString)\0QString\0linkType\0"
+    "getLinkName(int)\0on_workspaceCLI_returnPressed()\0"
+    "on_devCLI_returnPressed()\0on_Manage()\0"
+    "start_Framework()\0tree_Widget()\0"
+    "read_Workspace_CLI()\0"
+};
+
+const QMetaObject fwtest::staticMetaObject = {
+    { &QMainWindow::staticMetaObject, qt_meta_stringdata_fwtest,
+      qt_meta_data_fwtest, 0 }
+};
+
+const QMetaObject *fwtest::metaObject() const
+{
+    return &staticMetaObject;
+}
+
+void *fwtest::qt_metacast(const char *_clname)
+{
+    if (!_clname) return 0;
+    if (!strcmp(_clname, qt_meta_stringdata_fwtest))
+        return static_cast<void*>(const_cast< fwtest*>(this));
+    return QMainWindow::qt_metacast(_clname);
+}
+
+int fwtest::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QMainWindow::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: on_Start_Framework_clicked(); break;
+        case 1: on_Un_Subscribe_clicked(); break;
+        case 2: on_Subscribe_clicked(); break;
+        case 3: on_Delete((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 4: on_Create((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< std::string(*)>(_a[2]))); break;
+        case 5: { int _r = getDeviceType((*reinterpret_cast< QString(*)>(_a[1])));
+            if (_a[0]) *reinterpret_cast< int*>(_a[0]) = _r; }  break;
+        case 6: { int _r = getLinkType((*reinterpret_cast< QString(*)>(_a[1])));
+            if (_a[0]) *reinterpret_cast< int*>(_a[0]) = _r; }  break;
+        case 7: { QString _r = getLinkName((*reinterpret_cast< int(*)>(_a[1])));
+            if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
+        case 8: on_workspaceCLI_returnPressed(); break;
+        case 9: on_devCLI_returnPressed(); break;
+        case 10: on_Manage(); break;
+        case 11: start_Framework(); break;
+        case 12: tree_Widget(); break;
+        case 13: read_Workspace_CLI(); break;
+        default: ;
+        }
+        _id -= 14;
+    }
+    return _id;
+}
+QT_END_MOC_NAMESPACE
