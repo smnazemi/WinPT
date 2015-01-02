@@ -22,11 +22,15 @@
 #include <QtGui/QMainWindow>
 #include "../ui_fwtest.h"
 #include "../IPCHeaders.h"
+#include "IUDPReceiverListener.h"
+
 class MyDeviceEvents;
 class MyDeviceEvents2;
+class UDPReceiver;
+class UDPSender;
 
 
-class fwtest : public QMainWindow
+class fwtest : public QMainWindow , IUDPReceiverListener
 {
 	Q_OBJECT
 
@@ -39,9 +43,12 @@ public:
 	void showMsg(QString str);
 	void showMsg2(QString str);
 	void enterMsg(QString m);
+	void MessageReceived(QString msg) override;
 private:
 	Ui::fwtestClass ui;
 	IPCFrameWork *myIpcFw;
+	UDPReceiver* m_udpReceiver;
+	UDPSender* m_udpSender;
 
 private slots:
 

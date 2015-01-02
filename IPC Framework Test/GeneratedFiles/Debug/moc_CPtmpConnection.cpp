@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'CPtmpConnection.h'
 **
-** Created: Thu 1. Jan 13:44:03 2015
+** Created: Fri 2. Jan 11:32:10 2015
 **      by: The Qt Meta Object Compiler version 61 (Qt 4.5.3)
 **
 ** WARNING! All changes made in this file will be lost!
