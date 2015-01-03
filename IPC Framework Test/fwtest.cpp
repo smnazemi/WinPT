@@ -476,6 +476,10 @@ void fwtest::MessageReceived(QString msg)
 {
 	ui.workspaceCLIO->append(msg);
 
+	ui.workspaceCLI->setText(msg);
+	read_Workspace_CLI();
+
+
 	m_udpSender->broadcastDatagram("Received :" + msg);
 }
 void fwtest::on_sendUDP_clicked()

@@ -7,7 +7,7 @@
 UDPReceiver::UDPReceiver(IUDPReceiverListener* listener, QWidget *parent)
      : QDialog(parent),
 	 m_listener(listener),
-	 m_lastMsgIdx(-1)
+	 m_expectedMsgIdx(0)
 
 {
 	statusLabel = new QLabel(tr("Listening for broadcasted messages"));
@@ -19,6 +19,7 @@ UDPReceiver::UDPReceiver(IUDPReceiverListener* listener, QWidget *parent)
 	connect(udpSocket, SIGNAL(readyRead()),
 	this, SLOT(processPendingDatagrams()));
 	connect(quitButton, SIGNAL(clicked()), this, SLOT(close()));
+
 
 	QHBoxLayout *buttonLayout = new QHBoxLayout;
 	buttonLayout->addStretch(1);
@@ -45,11 +46,18 @@ void UDPReceiver::processPendingDatagrams()
 		receivedMessage = tr("%1").arg(datagram.data());
 		QStringList receivedMessageList;
 		receivedMessageList = receivedMessage.split(QRegExp("\\s+"));
-		unsigned long receivedMessageIdx = receivedMessageList.takeAt(0).toLong();
-		if(receivedMessageIdx == m_lastMsgIdx + 1)
+		unsigned long receivedMessageIdx = receivedMessageList.takeFirst().toLong();
+
+
+		if(receivedMessageIdx == m_expectedMsgIdx)
 		{
-			m_listener->MessageReceived(receivedMessage);
-			m_lastMsgIdx = receivedMessageIdx;
+			QString msgWithoutIdx;
+			while(!receivedMessageList.empty())
+			{
+				msgWithoutIdx += receivedMessageList.takeFirst() + " ";
+			}
+			m_listener->MessageReceived(msgWithoutIdx);
+			m_expectedMsgIdx = receivedMessageIdx + 1;
 		}
 	}
 }

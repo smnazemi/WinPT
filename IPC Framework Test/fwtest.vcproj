@@ -217,10 +217,10 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						Description="Performing Moc&apos;ing UDPReceiver.h..."
-						CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;  -DUNICODE -DWIN32 -DQT_THREAD_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_QT3SUPPORT_LIB -DQT3_SUPPORT -I&quot;.\GeneratedFiles&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;.\GeneratedFiles\$(ConfigurationName)&quot; -I&quot;.&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\Qt3Support&quot; &quot;.\UDPReceiver.h&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_UDPReceiver.cpp&quot;"
-						AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;.\UDPReceiver.h"
-						Outputs="&quot;.\GeneratedFiles\$(ConfigurationName)\moc_UDPReceiver.cpp&quot;"
+						Description="Performing Custom Build Step"
+						CommandLine=""
+						AdditionalDependencies=""
+						Outputs=""
 					/>
 				</FileConfiguration>
 			</File>

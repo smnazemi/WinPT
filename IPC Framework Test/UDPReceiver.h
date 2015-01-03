@@ -24,7 +24,7 @@
      QPushButton *quitButton;
      QUdpSocket *udpSocket;
 	 QString receivedMessage;
-	 unsigned long m_lastMsgIdx;
+	 unsigned long m_expectedMsgIdx;
  };
 
  #endif
