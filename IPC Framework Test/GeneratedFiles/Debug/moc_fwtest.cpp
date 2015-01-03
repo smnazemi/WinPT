@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'fwtest.h'
 **
-** Created: Thu 1. Jan 14:08:50 2015
+** Created: Fri 2. Jan 13:04:47 2015
 **      by: The Qt Meta Object Compiler version 61 (Qt 4.5.3)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -77,6 +77,8 @@ void *fwtest::qt_metacast(const char *_clname)
     if (!_clname) return 0;
     if (!strcmp(_clname, qt_meta_stringdata_fwtest))
         return static_cast<void*>(const_cast< fwtest*>(this));
+    if (!strcmp(_clname, "IUDPReceiverListener"))
+        return static_cast< IUDPReceiverListener*>(const_cast< fwtest*>(this));
     return QMainWindow::qt_metacast(_clname);
 }
 

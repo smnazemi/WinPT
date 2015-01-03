@@ -10,7 +10,8 @@
 
 
 #include "fwtest.h"
-#include "UDPClient.h"
+#include "UDPReceiver.h"
+#include "UDPSender.h"
 #include "../framework/IPCFrameWork.h"
 #include "../IPCfiles/Device.h"
 #include "../IPCfiles/NetworkFile.h"
@@ -36,7 +37,9 @@ LogicalWorkspace myLogicalWorkspace; //Create a logical Workspace object
 QString qcomponent, deviceName, currentPrompt, previousPrompt;
 
 fwtest::fwtest(QWidget *parent, Qt::WFlags flags) //main function
-	: QMainWindow(parent, flags)
+	: QMainWindow(parent, flags),
+	m_udpReceiver(0),
+	m_udpSender(0)
 {
 	ui.setupUi(this); //set up the GUI
 	ui.workspaceCLI->setFrameShape(QLineEdit::NoFrame);
@@ -62,7 +65,16 @@ on_Manage();
 
 fwtest::~fwtest()
 {
-
+	if(m_udpReceiver)
+	{
+		delete m_udpReceiver;
+		m_udpReceiver = 0;
+	}
+	if(m_udpSender)
+	{
+		delete m_udpSender;
+		m_udpSender = 0;
+	}
 }
 
 class MyDeviceEvents:DeviceEvents
@@ -460,11 +472,25 @@ try
 	}
 }
 
+void fwtest::MessageReceived(QString msg)
+{
+	ui.workspaceCLIO->append(msg);
 
+	m_udpSender->broadcastDatagram("Received :" + msg);
+}
 void fwtest::on_sendUDP_clicked()
 {
-	UDPClient c;
-	c.Send("HELLO");
+	if(m_udpSender == 0)
+	{
+		m_udpSender = new UDPSender();
+	}
+
+	if(m_udpReceiver == 0)
+	{
+		m_udpReceiver = new UDPReceiver(this);
+	}
+	m_udpReceiver->show();
+	m_udpReceiver->exec();
 }
 
 void fwtest::on_Start_Framework_clicked()

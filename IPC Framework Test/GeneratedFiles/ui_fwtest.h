@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'fwtest.ui'
 **
-** Created: Thu 1. Jan 13:51:36 2015
+** Created: Fri 2. Jan 11:32:08 2015
 **      by: Qt User Interface Compiler version 4.5.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
